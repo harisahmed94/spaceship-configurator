@@ -1,50 +1,27 @@
-.row {
+.main {
   display: flex;
+  justify-content: space-between;
+  column-gap: 3.2rem;
+
+  @include screen-md {
+    column-gap: 1.5rem;
+  }
 
   @include screen-sm {
-    flex-direction: column;
-  }
-
-  &--gutters {
-    justify-content: space-between;
-  }
-
-  &--start {
-    justify-content: start;
-
-    @include screen-md {
-      justify-content: center;
-    }
-  }
-
-  &--column-gap {
-    column-gap: 3.2rem;
-
-    @include screen-sm {
-      column-gap: 0;
-    }
+    display: block;
   }
 
   &__8 {
     flex: 8;
-
-    &--medium {
-      text-align: center;
-    }
   }
 
   &__4 {
     flex: 4;
-    &--medium {
-      @include screen-sm {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
 
-      // @media screen and (max-width: 968px) {
-      //   width: 100%;
-      // }
+    @include screen-sm {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

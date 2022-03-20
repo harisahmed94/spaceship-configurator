@@ -1,8 +1,8 @@
 export enum supportedConfigs {
   "color" = "color",
   "power" = "power",
-  "warp" = "warp",
-  "package" = "package"
+  "warp drive" = "warp drive",
+  "option package" = "option package"
 }
 
 export const basePrice = 1000;
@@ -24,7 +24,7 @@ const configs = [
   },
   {
     id: 3,
-    name: "warp",
+    name: "warp drive",
     title: "Warp drive",
     values: ["NO", "YES"],
     price: [0, 1000]

@@ -1,11 +1,15 @@
 .price-breakdown {
   $self: &;
   min-width: 304px;
-  border: 1px solid var(--primary-green);
+  border: 1px solid $primary-green;
   border-radius: 0.8rem;
-  background-color: var(--secondary-green);
+  background-color: $secondary-green;
   border-spacing: 0;
   margin-top: 3.2rem;
+
+  @include screen-md {
+    min-width: 260px;
+  }
 
   @include screen-sm {
     margin-top: 0;
@@ -42,12 +46,12 @@
 
   &__value {
     padding-bottom: 14px;
-    color: var(--white);
+    color: $white;
   }
 
   &__total,
   &__sum {
-    border-top: 1px solid var(--primary-green);
+    border-top: 1px solid $primary-green;
     font-size: 1.8rem;
   }
 
@@ -58,6 +62,6 @@
 
   &__sum {
     padding: 23px 0;
-    color: var(--white);
+    color: $white;
   }
 }

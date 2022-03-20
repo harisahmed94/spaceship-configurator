@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { configsType } from "../services/fakeConfigService";
 import Selector from "./Selector";
 
@@ -11,11 +11,11 @@ type SelectorsGroupProps = {
 const SelectorGroup: FC<SelectorsGroupProps> = ({ configs, groupState, raiseChange }) => {
 
   return (
-    <>
+    <form>
       {configs.map(config => {
         return <Selector key={config.id} config={config} selected={groupState[config.id]} raiseChange={(id, e) => raiseChange(id, e)} />;
       })}
-    </>
+    </form>
   );
 };
 

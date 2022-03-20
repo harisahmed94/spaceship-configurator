@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { supportedConfigs } from "../../services/fakeConfigService";
-import { b as block } from "../../utils/bem-css-modules";
-import s from "./RadioBox.module.scss";
+import { supportedConfigs } from "../services/fakeConfigService";
+import { b as block } from "../utils/bem-css-modules";
+import styles from "./RadioBox.module.scss";
 
 type RadioBoxProps = {
   name: string;
@@ -15,19 +15,12 @@ type RadioBoxProps = {
 
 const RadioBox: FC<RadioBoxProps> = ({ name, price, label, detailsList, checked, id, raiseChange }) => {
 
-  const b = block(s);
-
-  // const renderCheckedClassName = () => {
-  //   let name = b("body", {checked});
-  //   // name += checked ? " radio-box__body--checked" : "";
-  //   return name;
-  // };
+  const b = block(styles);
 
   const renderBoxData = () => {
     const isColor = name === supportedConfigs.color;
+    const isOptionPkg = name === supportedConfigs["option package"];
     if (isColor) {
-      // const name = b("color", {[label.toLowerCase()]: checked});
-      // console.log(name);
       return (
         <>
           <div className={b("color", {[label.toLowerCase()]: isColor})}></div>
@@ -39,7 +32,7 @@ const RadioBox: FC<RadioBoxProps> = ({ name, price, label, detailsList, checked,
     return (
       <>
         <span className={b("feature")}>{label}</span>
-        <span className={b("price")}>+{price}€</span>
+        <span className={b("price", {hidden: (isOptionPkg && !price)})}>+{price}€</span>
       </>
     );
   };
@@ -54,8 +47,8 @@ const RadioBox: FC<RadioBoxProps> = ({ name, price, label, detailsList, checked,
         {detailsList && (
           <div className={b("options")}>
             <ul className={b("list")}>
-              {detailsList.map(item => (
-                <li className={b("item")}>{item}</li>
+              {detailsList.map((item, index)=> (
+                <li className={b("item")} key={index}>{item}</li>
               ))}
             </ul>
           </div>

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { basePrice, configsType } from "../services/fakeConfigService";
-import "./PriceBreakdown.scss";
+import { b as block } from "../utils/bem-css-modules";
+import styles from "./PriceBreakdown.module.scss";
 
 type PriceBreakdownProps = {
   configs: configsType;
@@ -8,6 +9,8 @@ type PriceBreakdownProps = {
 };
 
 const PriceBreakdown: FC<PriceBreakdownProps> = ({ configs, selected }) => {
+
+  const b = block(styles);
 
   let sum = basePrice;
 
@@ -18,27 +21,27 @@ const PriceBreakdown: FC<PriceBreakdownProps> = ({ configs, selected }) => {
       sum += config.price[index];
 
       return (
-        <tr className="price-breakdown__row">
-          <td className="price-breakdown__feature">{config.name}:</td>
-          <td className="price-breakdown__value">+{config.price[index]}€</td>
+        <tr key={id} className={b("row")}>
+          <td className={b("feature")}>{config.name}:</td>
+          <td className={b("value")}>+{config.price[index]}€</td>
         </tr>
       );
     })
   );
 
   return (
-    <table className="price-breakdown">
-      <tbody className="price-breakdown__body">
-        <tr className="price-breakdown__row">
-          <td className="price-breakdown__feature">Base price:</td>
-          <td className="price-breakdown__value">{basePrice}€</td>
+    <table className={b()}>
+      <tbody className={b("body")}>
+        <tr className={b("row")}>
+          <td className={b("feature")}>Base price:</td>
+          <td className={b("value")}>{basePrice}€</td>
         </tr>
         {renderPriceData()}
       </tbody>
-      <tfoot className="price-breakdown__footer">
+      <tfoot>
         <tr>
-          <td className="price-breakdown__total">Total:</td>
-          <td className="price-breakdown__sum">{sum}€</td>
+          <td className={b("total")}>Total:</td>
+          <td className={b("sum")}>{sum}€</td>
         </tr>
       </tfoot>
     </table>

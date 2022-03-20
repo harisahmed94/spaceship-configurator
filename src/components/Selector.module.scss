@@ -1,0 +1,27 @@
+.selector {
+  margin-bottom: 4.8rem;
+
+  &__heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0 0 0.8rem;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3.2rem;
+
+    @include screen-md {
+      grid-column-gap: 1rem;
+    }
+
+    @include screen-sm {
+      grid-column-gap: 2rem;
+    }
+
+    @include screen-xs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

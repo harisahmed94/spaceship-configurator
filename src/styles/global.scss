@@ -12,9 +12,9 @@ body {
 }
 
 body {
-  font-family: var(--app-font-family);
-  background-color: var(--background);
-  color: var(--primary-green);
+  font-family: $app-font-family;
+  background-color: $background;
+  color: $primary-green;
 }
 
 ul {

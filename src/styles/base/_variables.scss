@@ -1,34 +1,19 @@
 /* Colors */
-:root {
-  --primary-green: #7bf762;
-  --disabled-green: #5a8f4f;
-  --background: #051544;
-  --secondary-green: #1c3c16;
-  --volcano: #ff7400;
-  --sky: #6be4ff;
-  --white: #fff;
+$primary-green: #7bf762;
+$disabled-green: #5a8f4f;
+$background: #051544;
+$secondary-green: #1c3c16;
+$volcano: #ff7400;
+$sky: #6be4ff;
+$white: #fff;
 
-  /* Typography */
-  --app-font-family: "Roboto Mono", monospace;
+/* Typography */
+$app-font-family: "Roboto Mono", monospace;
 
-  /* Layout */
-  --width: 944px;
-}
+/* Layout */
+$width: 944px;
 
 /* Media Query Breakpoints */
-$screen-md: 968px;
-$screen-sm: 776px;
+$screen-md: 992px;
+$screen-sm: 768px;
 $screen-xs: 576px;
-
-// $primary-green: #7bf762;
-// $background: #051544;
-// $secondary-green: #1c3c16;
-// $volcano: #ff7400;
-// $sky: #6be4ff;
-// $white: #fff;
-
-// /* Typography */
-// $app-font-family: "Roboto Mono", monospace;
-
-// /* Layout */
-// $width: 944px;
