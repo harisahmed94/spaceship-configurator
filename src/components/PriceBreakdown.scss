@@ -1,0 +1,63 @@
+.price-breakdown {
+  $self: &;
+  min-width: 304px;
+  border: 1px solid var(--primary-green);
+  border-radius: 0.8rem;
+  background-color: var(--secondary-green);
+  border-spacing: 0;
+  margin-top: 3.2rem;
+
+  @include screen-sm {
+    margin-top: 0;
+  }
+
+  &__body::before,
+  &__body::after {
+    content: "";
+    display: block;
+    height: 16px;
+  }
+
+  &__row:last-child {
+    #{$self}__feature,
+    #{$self}__value {
+      padding-bottom: 0;
+    }
+  }
+
+  &__feature,
+  &__value {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  &__feature {
+    padding: 0 0 14px 16px;
+    letter-spacing: 0.2rem;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__value {
+    padding-bottom: 14px;
+    color: var(--white);
+  }
+
+  &__total,
+  &__sum {
+    border-top: 1px solid var(--primary-green);
+    font-size: 1.8rem;
+  }
+
+  &__total {
+    padding: 23px 0 23px 16px;
+    letter-spacing: 0.2rem;
+  }
+
+  &__sum {
+    padding: 23px 0;
+    color: var(--white);
+  }
+}

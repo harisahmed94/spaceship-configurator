@@ -1,0 +1,24 @@
+@import "./theme.scss";
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--app-font-family);
+  background-color: var(--background);
+  color: var(--primary-green);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

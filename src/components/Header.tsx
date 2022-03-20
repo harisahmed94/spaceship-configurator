@@ -1,8 +1,7 @@
 import React, { FC } from "react";
-import s from "./Header.scss";
+import s from "./Header.module.scss";
 
 const Header: FC = () => {
-  console.log(s);
   return (
     <header>
       <h1 className={s.header__title}>Spaceship configurator</h1>

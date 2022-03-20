@@ -1,0 +1,10 @@
+@import "./styles/global.scss";
+
+.container {
+  max-width: var(--width);
+  margin: 0 auto;
+  @include screen-md {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

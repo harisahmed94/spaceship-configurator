@@ -1,0 +1,127 @@
+.radio-box {
+  @include screen-sm {
+    margin-bottom: 2rem;
+  }
+
+  &:last-child {
+    @include screen-sm {
+      margin-bottom: 0;
+    }
+  }
+
+  &__body {
+    color: var(--disabled-green);
+    padding: 1.6rem 0 1.2rem;
+    max-width: 176px;
+    border: 0.1rem solid var(--disabled-green);
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // @include screen-sm {
+    //   margin-bottom: 2rem;
+    // }
+
+    // &:last-child {
+    //   @include screen-sm {
+    //     margin-bottom: 0;
+    //   }
+    // }
+
+    &--checked {
+      color: var(--primary-green);
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0.5rem var(--primary-green);
+    }
+  }
+
+  &__radio {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__radio:checked {
+    margin-left: 25px;
+    border: 1px solid blue;
+  }
+
+  // &__label {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+
+  &__color {
+    width: 6.4rem;
+    height: 3.2rem;
+    border-radius: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  &__color--snow {
+    background-color: var(--white);
+  }
+
+  &__color--volcano {
+    background-color: var(--volcano);
+  }
+
+  &__color--sky {
+    background-color: var(--sky);
+  }
+
+  &__price {
+    font-size: 1.2rem;
+    // margin-bottom: 1.2rem;
+  }
+
+  &__feature {
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__feature--color {
+    margin-bottom: 0.8rem;
+    margin-top: 1.6rem;
+  }
+
+  &__options {
+    background-color: var(--secondary-green);
+    width: 100%;
+    padding: 1.9rem 0;
+    margin-top: 0.8rem;
+    margin-bottom: -1.2rem;
+    border-radius: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 9.5rem;
+  }
+
+  &__list {
+    padding-left: 0.4rem;
+  }
+
+  &__item {
+    font-size: 1.2rem;
+    line-height: 1rem;
+    padding-bottom: 0.7rem;
+    margin-right: -0.4rem;
+  }
+
+  &__item:last-child {
+    padding-bottom: 0;
+  }
+
+  &__item::before {
+    content: "▲";
+    display: block;
+    float: left;
+    padding-right: 0.4rem;
+    width: 0.8rem;
+    position: relative;
+    top: -1px;
+  }
+}
