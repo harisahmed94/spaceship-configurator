@@ -4,7 +4,6 @@ import styles from "./Header.module.scss";
 
 const Header: FC = () => {
   const b = block(styles);
-
   return (
     <header>
       <h1 className={b("title")}>Spaceship configurator</h1>

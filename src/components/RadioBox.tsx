@@ -1,7 +1,7 @@
 import React, { FC } from "react";
+import styles from "./RadioBox.module.scss";
 import { supportedConfigs } from "../services/fakeConfigService";
 import { b as block } from "../utils/bem-css-modules";
-import styles from "./RadioBox.module.scss";
 
 type RadioBoxProps = {
   name: string;

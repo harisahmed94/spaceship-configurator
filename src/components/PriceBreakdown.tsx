@@ -1,7 +1,7 @@
 import React, { FC } from "react";
+import styles from "./PriceBreakdown.module.scss";
 import { basePrice, configsType } from "../services/fakeConfigService";
 import { b as block } from "../utils/bem-css-modules";
-import styles from "./PriceBreakdown.module.scss";
 
 type PriceBreakdownProps = {
   configs: configsType;

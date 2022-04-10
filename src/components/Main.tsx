@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
+import styles from "./Main.module.scss";
 import SelectorGroup from "./SelectorGroup";
 import PriceBreakdown from "./PriceBreakdown";
 import { getConfigs } from "../services/fakeConfigService";
 import { b as block } from "../utils/bem-css-modules";
-import styles from "./Main.module.scss";
 
 const Main: FC = () => {
 

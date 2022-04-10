@@ -1,25 +1,37 @@
+const currentTask = process.env.npm_lifecycle_event
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const CSSModuleLoader = { loader: 'css-loader', options: { sourceMap: true, modules: {
+let mode = "development";
+let cssHandler = "style-loader";
+let isDev = true;
+let devtool = "source-map";
+
+if (currentTask == "build") {
+  mode = "production";
+  cssHandler = MiniCssExtractPlugin.loader;
+  isDev = false;
+  devtool = false;
+}
+
+const CSSModuleLoader = { loader: 'css-loader', options: { sourceMap: isDev, modules: {
   localIdentName: "[local]__[hash:base64:5]"
 }, importLoaders: 2 } };
 
-const CSSLoader = { loader: 'css-loader', options: { sourceMap: true, importLoaders: 2 } };
+const CSSLoader = { loader: 'css-loader', options: { sourceMap: isDev, importLoaders: 2 } };
 
-const SASSLoader = { loader: 'sass-loader', options: { sourceMap: true } };
+const SASSLoader = { loader: 'sass-loader', options: { sourceMap: isDev } };
 
 const SASSResourcesLoader =   {loader: 'sass-resources-loader', options: {
   resources: [path.resolve(__dirname,'./src/styles/base/_variables.scss'), path.resolve(__dirname,'./src/styles/base/_mixins.scss')]
 },};
 
-
-
 module.exports = {
   entry: "./src/index.tsx",
   target: "web",
-  mode: "development",
+  mode: mode,
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
@@ -27,7 +39,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
-  devtool: "source-map",
+  devtool: devtool,
   module: {
     rules: [
         { 
@@ -40,15 +52,9 @@ module.exports = {
         loader: "awesome-typescript-loader",
       },
       {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "source-map-loader",
-      },
-      {
         test: /\.scss$/,
         use: [
-            'style-loader',
-            // MiniCssExtractPlugin.loader,
+            cssHandler,
             CSSModuleLoader,
             SASSLoader,
             SASSResourcesLoader
@@ -58,8 +64,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-            'style-loader',
-            // MiniCssExtractPlugin.loader,
+            cssHandler,
             CSSLoader,
             SASSLoader,
             SASSResourcesLoader
@@ -69,12 +74,13 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src", "index.html"),
     }),
-    // new MiniCssExtractPlugin({
-    //     filename: '[name].css',
-    //     chunkFilename: '[id].css',
-    // }),
+    new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+    }),
   ],
 }

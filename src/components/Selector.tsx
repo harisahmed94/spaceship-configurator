@@ -1,8 +1,8 @@
 import React, { FC } from "react";
+import styles from "./Selector.module.scss";
 import RadioBox from "./RadioBox";
 import { configType } from "../services/fakeConfigService";
 import { b as block } from "../utils/bem-css-modules";
-import styles from "./Selector.module.scss";
 
 type SelectorProps = {
   config: configType;
